@@ -37,7 +37,28 @@
             $sql = "SELECT * FROM categories WHERE c_id = '$cid'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
-            echo '<h2 class="text-center text-secondary">' . $row['categories'] . '</h2><hr>';
+            echo '
+            <div style="display:flex;flex-">
+            <h2 class=" text-secondary ">' . $row['categories'] . '</h2>
+            <div class="ml-auto">
+            <a href="add_activity.php?cid=' . $row['c_id'] . '" class="m-1 pr-2 text-dark btn btn-dark-outline">
+            <svg width="1em" height="1em" viewBox="0 0 15 17" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg>
+          Add Activity
+            </a>
+            
+            <a href="delete_cat.php?cid=' . $row['c_id'] . '" class="m-1 pr-2 text-dark btn btn-dark-outline">
+            <svg width="1em" height="1em" viewBox="0 0 15 17" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+          </svg>
+          delete category
+            </a>
+
+           </div>
+           </div>
+   
+            <hr>';
             // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $sql = "SELECT * FROM activities WHERE c_id = '$cid'";
             $result = mysqli_query($conn, $sql);
